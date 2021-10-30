@@ -40,7 +40,7 @@ public class StepImplementation extends BaseTest {
         System.out.println(Key + "Elementine tıklandı");
     }
 
-    @Step("<Key> İd'li elemente <keywordc> değerini yaz")
+    @Step("<Key> İd'li elemente <keyword> değerini yaz")
     public void SendkeyElementByid(String Key, String keyword) {
         appiumDriver.findElement(By.id(Key)).sendKeys(keyword);
         //sendKeys(By.id(Key),keyword);
@@ -82,10 +82,18 @@ public class StepImplementation extends BaseTest {
     }
     @Step("Sepete ekle")
     public void addToBasket(){
-
-            clickElementByxpath("//androidx.recyclerview.widget.RecyclerView//android.widget.RelativeLayout[@index=0]");
-            clickElementByid("com.ozdilek.ozdilekteyim:id/relLayAddCartBtn");
-
+            boolean sizeGroupDisplayed = findElement(By.xpath("//android.widget.TextView[@resource-id='com.ozdilek.ozdilekteyim:id/tvInSizeItem']")).isDisplayed();
+            boolean standartDisplayed = findElement(By.id("com.ozdilek.ozdilekteyim:id/tvInSizeItem")).isDisplayed();
+            boolean gelinceHaberVer = findElement(By.xpath("//android.widget.TextView[@text='Gelince Haber Ver']")).isDisplayed();
+            if(sizeGroupDisplayed) {
+                clickElementByxpath("//androidx.recyclerview.widget.RecyclerView//android.widget.RelativeLayout[@index=0]");
+                if (gelinceHaberVer)
+                    clickElementByxpath("//android.widget.TextView[@text='Gelince Haber Ver']");
+                clickElementByid("com.ozdilek.ozdilekteyim:id/relLayAddCartBtn");
+            }else if(standartDisplayed){
+                clickElementByid("com.ozdilek.ozdilekteyim:id/relLayAddCartBtn");
+            }else
+                logger.info("sepete ekleme buton hatası");
     }
     protected JavascriptExecutor getJSExecutor() {
         return (JavascriptExecutor) appiumDriver;
