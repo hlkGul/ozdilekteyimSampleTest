@@ -25,7 +25,7 @@ public class StepImplementation extends BaseTest {
 
 
     @Step("<time> saniye bekle")
-    public static void waitSeconds(int seconds) {
+    public void waitSeconds(int seconds) {
         try {
             TimeUnit.SECONDS.sleep(seconds);
         } catch (InterruptedException e) {
@@ -45,6 +45,7 @@ public class StepImplementation extends BaseTest {
         appiumDriver.findElement(By.id(Key)).sendKeys(keyword);
         //sendKeys(By.id(Key),keyword);
         System.out.println(Key + "Elementine tıklandı");
+
 
     }
 

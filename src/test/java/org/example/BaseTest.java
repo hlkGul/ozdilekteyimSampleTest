@@ -10,16 +10,22 @@ import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import testLogger.TestResultLogger;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
+@ExtendWith(TestResultLogger.class)
 public class BaseTest {
     protected static AppiumDriver<MobileElement> appiumDriver;
     protected static WebDriverWait wait;
