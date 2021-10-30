@@ -5,7 +5,7 @@
 assertion lar page asserts package altında yapılmıştır. 
 log'ları logs altında ve logging.log dosyasında bulabilirsiniz. (en temel kontroller dosyaların en altında gözükecek)
 ```
-## Scanerio steps
+## Scenario steps
 ```
 - “Özdilekteyim” uygulaması açılır
 - Uygulamanın açıldığı kontrol edilir
