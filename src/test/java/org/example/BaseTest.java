@@ -19,17 +19,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import testLogger.TestResultLogger;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 
-@ExtendWith(TestResultLogger.class)
 public class BaseTest {
     protected static AppiumDriver<MobileElement> appiumDriver;
     protected static WebDriverWait wait;
     protected boolean localAndroid = true;
+    public Logger logger = LogManager.getLogger(getClass().getName());
+
 
     @BeforeScenario
     public void Education() throws MalformedURLException{

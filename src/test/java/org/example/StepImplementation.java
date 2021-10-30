@@ -105,10 +105,9 @@ public class StepImplementation extends BaseTest {
     public void waitUntilElementAppear(By by) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
-    public WebElement findElement(By locator) {
-        return appiumDriver.findElement(locator);
+    public WebElement findElement(By by) {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
-
     public void clickElement(By by) {
         waitUntilPresence(by);
         WebElement element;
